@@ -40,10 +40,7 @@ public class main extends LinearOpMode {
             //Driver 2
             viper.ascend(gamepad2.right_stick_y,0);
             servoes.controlExtender(gamepad2.left_stick_y);
-            telemetry.addData("Power: ", gamepad2.left_stick_y);
-            telemetry.addData("Stanga: ", Math.abs((1+gamepad2.left_stick_y)/2));
-            telemetry.addData("Dreapta: ", Math.abs(gamepad2.left_stick_y/2));
-            telemetry.update();
+            servoes.aspirator(gamepad2.right_trigger - gamepad2.left_trigger);
             //
             last_cycle = curr_cycle;
             curr_cycle = gamepad2.y;
