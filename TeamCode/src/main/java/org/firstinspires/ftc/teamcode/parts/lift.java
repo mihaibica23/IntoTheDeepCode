@@ -22,12 +22,17 @@ public class lift {
         viper1.setDirection(DcMotorSimple.Direction.REVERSE);
         viper2.setDirection(DcMotorSimple.Direction.REVERSE);
     }
-    public void ascend(double power)
+    public void ascend(double power, int pozitie)
     {
         if(extindere<=0) extindere = 0;
-        extindere -= 10*power;
-        if(extindere > 4015) extindere = 4015;
-
+        if(pozitie==0) {
+            extindere -= 15 * power;
+            if (extindere > 4015) extindere = 4015;
+        }
+        else
+        {
+            extindere = pozitie;
+        }
         viper1.setTargetPosition(extindere);
         viper1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         viper1.setPower(1);
@@ -35,9 +40,5 @@ public class lift {
         viper2.setTargetPosition(extindere);
         viper2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         viper2.setPower(1);
-
-
-
-
     }
 }
