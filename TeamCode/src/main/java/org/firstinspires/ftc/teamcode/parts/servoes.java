@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class servoes {
-    private Servo gheara, articulatieJos, articulatieSus, extenderStanga, extenderDreapta;
+    private Servo gheara, articulatieJos, articulatieSus, extenderStanga, extenderDreapta, cuvaStanga, cuvaDreapta,hang;
     private CRServo intake;
     public servoes(HardwareMap hardwareMap)
     {
@@ -14,7 +14,10 @@ public class servoes {
         articulatieSus=hardwareMap.get(Servo.class, "articulatieSus");
         extenderStanga=hardwareMap.get(Servo.class, "extenderStanga");
         extenderDreapta=hardwareMap.get(Servo.class, "extenderDreapta");
+        cuvaStanga=hardwareMap.get(Servo.class, "cuvaStanga");
+        cuvaDreapta=hardwareMap.get(Servo.class, "cuvaDreapta");
         intake = hardwareMap.get(CRServo.class, "intake");
+        hang = hardwareMap.get(Servo.class, "hang");
 
     }
 
@@ -36,5 +39,14 @@ public class servoes {
     public void aspirator(double power)
     {
         intake.setPower(power);
+    }
+    public void cuva(double unghi)
+    {
+        cuvaStanga.setPosition(unghi);
+        cuvaDreapta.setPosition(1-unghi);
+    }
+    public void pullUp(double unghi)
+    {
+        hang.setPosition(unghi);
     }
 }

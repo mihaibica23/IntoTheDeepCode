@@ -22,12 +22,11 @@ public class lift {
         viper1.setDirection(DcMotorSimple.Direction.REVERSE);
         viper2.setDirection(DcMotorSimple.Direction.REVERSE);
     }
-    public void ascend(double power, int pozitie)
-    {
+    public void ascend(double power, int pozitie)    {
         if(extindere<=0) extindere = 0;
         if(pozitie==0) {
-            extindere -= 15 * power;
-            if (extindere > 4015) extindere = 4015;
+            extindere -= 30  * power;
+            if (extindere > 3900) extindere = 3900;
         }
         else
         {

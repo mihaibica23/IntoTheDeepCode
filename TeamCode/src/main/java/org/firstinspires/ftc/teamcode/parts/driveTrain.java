@@ -21,6 +21,7 @@ public class driveTrain
         fataDreapta.setDirection(DcMotorSimple.Direction.REVERSE);
         spateDreapta.setDirection(DcMotorSimple.Direction.REVERSE);
 
+
     }
 
     public void drive(double fata, double glisare, double rotate)
