@@ -125,9 +125,7 @@ public class autoMain extends LinearOpMode {
             if(glisare1 && !forward2)
             {
                 drive.drive(-2600, 2400, 2400, -2600,0.15);
-                telemetry.addData("FS:", fataStanga.getCurrentPosition());
-                telemetry.addData("FD:", fataDreapta.getCurrentPosition());
-                telemetry.update();
+
                 if(fataStanga.getCurrentPosition()>=-2620 && fataDreapta.getCurrentPosition()>=2380 && spateStanga.getCurrentPosition()>=2380 && spateDreapta.getCurrentPosition()>=-2620)
                 {
                     forward2=true;
@@ -145,8 +143,11 @@ public class autoMain extends LinearOpMode {
             }
             if(back2 && !glisare2)
             {
-                drive.drive(-500, -500, -500, -500,0.4);
-                if(fataStanga.getCurrentPosition()>=-515 && fataDreapta.getCurrentPosition()<=-485 && spateStanga.getCurrentPosition()>=-515 && spateDreapta.getCurrentPosition()<=-485)
+                drive.drive(-400, -600, -600, -400,0.4);
+                telemetry.addData("FS:", fataStanga.getCurrentPosition());
+                telemetry.addData("FD:", fataDreapta.getCurrentPosition());
+                telemetry.update();
+                if(fataStanga.getCurrentPosition()>=-430 && fataDreapta.getCurrentPosition()<=-580 && spateStanga.getCurrentPosition()<=-580 && spateDreapta.getCurrentPosition()>=-430)
                 {
                     glisare2=true;
                 }
@@ -159,20 +160,23 @@ public class autoMain extends LinearOpMode {
             if(glisare2 && !back3)
             {
                 drive.drive(-1850, -1850, -1850, -1850, 0.4);
+                telemetry.addData("FS:", fataStanga.getCurrentPosition());
+                telemetry.addData("FD:", fataDreapta.getCurrentPosition());
+                telemetry.update();
                 if(fataStanga.getCurrentPosition()<=-1640 && fataDreapta.getCurrentPosition()<=-1640 && spateStanga.getCurrentPosition()<=-1640 && spateDreapta.getCurrentPosition()<=-1640)
                 {
                     back3=true;
                 }
             }
-            if(back3 && !glisare3)
+            /*if(back3 && !glisare3)
             {
                 drive.drive(-1600, -2100, -2100, -1600, 0.4);
                 if(fataStanga.getCurrentPosition()>=-1680 && fataDreapta.getCurrentPosition()<=-2020 && spateStanga.getCurrentPosition()>=-1680 && spateDreapta.getCurrentPosition()<=-2020)
                 {
                     glisare3=true;
                 }
-            }
-            if(glisare3 && !ridicare_viper2)
+            }*/
+            if(back3 && !ridicare_viper2)
             {
                 lift.ascend(1,1600);
                 if(viper1.getCurrentPosition()>=1600 && viper2.getCurrentPosition()>=1600)

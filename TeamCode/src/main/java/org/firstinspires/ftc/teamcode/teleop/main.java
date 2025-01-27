@@ -55,6 +55,7 @@ public class main extends LinearOpMode {
             viper.ascend(gamepad2.right_stick_y,0);
             servoes.controlExtender(gamepad2.left_stick_y);
             servoes.aspirator(gamepad2.right_trigger - gamepad2.left_trigger);
+            servoes.aspirator(Math.abs(-gamepad2.right_trigger*0.7));
 
             telemetry.addData("Viper1: ", viper1.getCurrentPosition());
             telemetry.addData("Viper2: ", viper2.getCurrentPosition());
@@ -96,7 +97,7 @@ public class main extends LinearOpMode {
             }
 
             last_circle = curr_circle;
-            curr_circle = gamepad2.b;
+            curr_circle = gamepad2.left_stick_button;
             if(curr_circle && !last_circle)
             {
                 if(cuva)
@@ -138,12 +139,11 @@ public class main extends LinearOpMode {
                 {
                     if(timer.seconds()>=0 && timer.seconds()<0.1)
                     {
-
                         servoes.pozitieBrat(0.34, 0.39);
                         servoes.cuva(0.73);
                     }
                     if(timer.seconds()>=1.1) {servoes.deschidereGheara(0); }
-                    if(timer.seconds()>=1.5){ servoes.pozitieBrat(0.34,1); servoes.cuva(0.75);break;}
+                    if(timer.seconds()>=1.5){ servoes.pozitieBrat(0.34,1); servoes.cuva(0.75); break;}
                 }
             }
 
